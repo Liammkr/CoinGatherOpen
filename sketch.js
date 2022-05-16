@@ -255,15 +255,24 @@ function setup() {
   if (coinCost == null) {
     coinCost = 200;
   }
-  button1 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Play.png", "Play")
+  button1 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Play.png",
+    "Play"
+  )
     .position(x + 175, y + 150)
     .size(50, 50)
     .mousePressed(gameStart);
-  button2 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Menu_Shop.png", "shop")
+  button2 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Menu_Shop.png",
+    "shop"
+  )
     .position(x + 20, y + 300)
     .size(30, 30)
     .mousePressed(clicked2);
-  button4 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Back.png", "back")
+  button4 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Back.png",
+    "back"
+  )
     .position(x + 10, y + 10)
     .size(20, 20)
     .mousePressed(back1);
@@ -271,20 +280,32 @@ function setup() {
     .position(x + 40, y + 110)
     .size(75, 20)
     .mousePressed(buy);
-  button5 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/LeaderBoard1.png", "LeaderBoard")
+  button5 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/LeaderBoard1.png",
+    "LeaderBoard"
+  )
     .size(30, 30)
     .position(x + 360, y + 300)
     .mousePressed(leaderBoardPress);
-  button6 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Menu_Img.png", "go back to menu")
+  button6 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Menu_Img.png",
+    "go back to menu"
+  )
     .position(x + 10, y + 10)
     .size(30, 30)
     .mousePressed(menuGoBack);
-  button7 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Shield-2.png", "shield")
+  button7 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Shield-2.png",
+    "shield"
+  )
     .position(x + 30, y + 320)
     .size(30, 30)
     .mousePressed(shieldActivate);
   button8 = createInput(userName).position(x + 115, y + 300);
-  button9 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/Settings.png", "settings")
+  button9 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Settings.png",
+    "settings"
+  )
     .position(x + 10, y + 10)
     .size(30, 30)
     .mousePressed(openSettings);
@@ -302,14 +323,28 @@ function setup() {
     .position(x + 40, y + 280)
     .size(75, 20)
     .mousePressed(buy3);
-  behind1 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png", "left")
+  behind1 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
+    "left"
+  )
     .position(0, 0)
     .size(x, windowHeight);
-  behind2 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png", "left").position(x, 0).size(width, y);
-  behind3 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png", "left")
+  behind2 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
+    "left"
+  )
+    .position(x, 0)
+    .size(width, y);
+  behind3 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
+    "left"
+  )
     .position(x, y + height)
     .size(width, y);
-  behind4 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png", "left")
+  behind4 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
+    "left"
+  )
     .position(x + width, 0)
     .size(x, windowHeight);
   button15 = createButton("Play")
@@ -319,13 +354,43 @@ function setup() {
   button16 = createButton("Play (Beta)")
     .size(90, 40)
     .position(x + 260, y + 250);
-  button17 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/P5jsLogo.png","P5logo").size(50,50).position(x+ 30,y + 330).mousePressed(p5Open);
-  button18 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/GitHub.png","GitHubLogo").size(50,50).position(x+ 100,y + 330).mousePressed(sitesOpen);
-  button19 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/GlitchLogo.jpeg","GlitchLogo").size(50,50).position(x+ 240,y + 330).mousePressed(glitchOpen);
-  button20 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/ReplitLogo.png","ReplitLogo").size(50,50).position(x+ 310,y + 330).mousePressed(replOpen);
-  button21 = createImg("https://coingathergame.liamrubin2.repl.co/Assets/GitHub.png","GitHubLogo").size(50,50).position(x+ 170,y + 330).mousePressed(repoOpen);
+  button17 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/P5jsLogo.png",
+    "P5logo"
+  )
+    .size(50, 50)
+    .position(x + 30, y + 330)
+    .mousePressed(p5Open);
+  button18 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/GitHub.png",
+    "GitHubLogo"
+  )
+    .size(50, 50)
+    .position(x + 100, y + 330)
+    .mousePressed(sitesOpen);
+  button19 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/GlitchLogo.jpeg",
+    "GlitchLogo"
+  )
+    .size(50, 50)
+    .position(x + 240, y + 330)
+    .mousePressed(glitchOpen);
+  button20 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/ReplitLogo.png",
+    "ReplitLogo"
+  )
+    .size(50, 50)
+    .position(x + 310, y + 330)
+    .mousePressed(replOpen);
+  button21 = createImg(
+    "https://coingathergame.liamrubin2.repl.co/Assets/GitHub.png",
+    "GitHubLogo"
+  )
+    .size(50, 50)
+    .position(x + 170, y + 330)
+    .mousePressed(repoOpen);
   button11.hide();
-  button15.hide();  
+  button15.hide();
   button16.hide();
   button12.hide();
   button13.hide();
@@ -342,11 +407,11 @@ function setup() {
   button18.hide();
   button17.hide();
   var config = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    storageBucket: "",
-    messagingSenderId: "",
+    apiKey: "AIzaSyCnAXY7aTxwXgVQVWjypTZDpKFnuDqMN7s",
+    authDomain: "coin-gather-game.firebaseapp.com",
+    databaseURL: "https://coin-gather-game-default-rtdb.firebaseio.com",
+    storageBucket: "coin-gather-game.appspot.com",
+    messagingSenderId: "258024691599",
   };
   firebase.initializeApp(config);
   database = firebase.database();
@@ -460,7 +525,9 @@ function errData(err) {
   console.log(err);
 }
 function preload() {
-  menu = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Menu_Shop.png");
+  menu = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Menu_Shop.png"
+  );
   play = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Play.png");
   settingsImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/Settings.png"
@@ -468,35 +535,65 @@ function preload() {
   leaderBoardImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/LeaderBoard1.png"
   );
-  pixel = loadFont("Assets/slkscre.ttf");
+  pixel = loadFont("https://coingathergame.liamrubin2.repl.co/Assets/slkscre.ttf");
   shieldImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/Shield-2.png"
   );
   characterImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/Character.png"
   );
-  coinImg = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Coin.png");
+  coinImg = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Coin.png"
+  );
   bigCoinImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/BigCoin.png"
   );
   shipImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/Spaceship.png"
   );
-  carImg = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Car.png");
-  street = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Street.png");
-  heart[6] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart6.png");
-  heart[5] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart5.png");
-  heart[4] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart4.png");
-  heart[3] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart3.png");
-  heart[2] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart2.png");
-  heart[1] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart1.png");
-  heart[0] = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Heart0.png");
+  carImg = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Car.png"
+  );
+  street = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Street.png"
+  );
+  heart[6] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart6.png"
+  );
+  heart[5] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart5.png"
+  );
+  heart[4] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart4.png"
+  );
+  heart[3] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart3.png"
+  );
+  heart[2] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart2.png"
+  );
+  heart[1] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart1.png"
+  );
+  heart[0] = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/Heart0.png"
+  );
   sky1 = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/Sky2.png");
-  coinSound = loadSound("https://coingathergame.liamrubin2.repl.co/Assets/CoinSound.wav");
-  shieldSound = loadSound("https://coingathergame.liamrubin2.repl.co/Assets/ShieldUse.wav");
-  buySound = loadSound("https://coingathergame.liamrubin2.repl.co/Assets/BuyingSound.wav");
-  deathSound = loadSound("https://coingathergame.liamrubin2.repl.co/Assets/DeathSound.wav");
-  lootBox1Img = loadImage("https://coingathergame.liamrubin2.repl.co/Assets/CommonBox.png");
+  coinSound = loadSound(
+    "https://coingathergame.liamrubin2.repl.co/Assets/CoinSound.wav"
+  );
+  shieldSound = loadSound(
+    "https://coingathergame.liamrubin2.repl.co/Assets/ShieldUse.wav"
+  );
+  buySound = loadSound(
+    "https://coingathergame.liamrubin2.repl.co/Assets/BuyingSound.wav"
+  );
+  deathSound = loadSound(
+    "https://coingathergame.liamrubin2.repl.co/Assets/DeathSound.wav"
+  );
+  lootBox1Img = loadImage(
+    "https://coingathergame.liamrubin2.repl.co/Assets/CommonBox.png"
+  );
 }
 function draw() {
   oldscore1 = score1;
@@ -675,7 +772,7 @@ function draw() {
     fill("black");
     text("1v1 Game", 305, 230);
     textSize(15);
-    text("Other Pages (click) :",200,320);
+    text("Other Pages (click) :", 200, 320);
     textSize(12);
     text("P5.js", 55, 390);
     text("Sites", 125, 390);
@@ -826,6 +923,8 @@ function buy() {
     shield += 1;
     coins -= 150;
     buySound.play();
+  } else {
+    alert("Not Enough Coins!");
   }
 }
 function buy1() {
@@ -834,6 +933,8 @@ function buy1() {
     coins -= coinCost;
     coinCost += 100;
     buySound.play();
+  } else {
+    alert("Not Enough Coins!");
   }
 }
 function buy3() {
@@ -841,12 +942,24 @@ function buy3() {
     coins -= 300;
     commonBoxOpen();
     buySound.play();
-  } else if (coins < 300) {
-    broke = true;
+  } else {
+    alert("Not Enough Coins!");
   }
 }
-function p5Open(){
-  window.open("https://editor.p5js.org/lr14/full/B0suIbb69")
+function p5Open() {
+  window.open("https://editor.p5js.org/lr14/full/B0suIbb69");
+}
+function sitesOpen() {
+  window.open("https://liammkr.github.io/CoinGather/");
+}
+function repoOpen() {
+  window.open("https://github.com/Liammkr/CoinGatherOpen");
+}
+function glitchOpen() {
+  window.open("https://coingather.glitch.me/");
+}
+function replOpen() {
+  window.open("https://CoinGatherGame.liamrubin2.repl.co");
 }
 function commonBoxOpen() {
   commonBoxLoot = int(random(2, 1000));
