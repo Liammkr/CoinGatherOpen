@@ -407,11 +407,11 @@ function setup() {
   button18.hide();
   button17.hide();
   var config = {
-    apiKey: "AIzaSyCnAXY7aTxwXgVQVWjypTZDpKFnuDqMN7s",
+    apiKey: "",
     authDomain: "coin-gather-game.firebaseapp.com",
     databaseURL: "https://coin-gather-game-default-rtdb.firebaseio.com",
-    storageBucket: "coin-gather-game.appspot.com",
-    messagingSenderId: "258024691599",
+    storageBucket: "",
+    messagingSenderId: "",
   };
   firebase.initializeApp(config);
   database = firebase.database();
