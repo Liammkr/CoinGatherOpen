@@ -1,217 +1,10 @@
-var heart = [];
-var heartIndex = 3;
-//coin vars , positions
-var coin = {
-  x: 100,
-  y: 100,
-  h: 50,
-  w: 50,
-};
-//huge coin vars , positions
-var huge = {
-  x: 400,
-  y: 400,
-  w: 50,
-  h: 50,
-};
-//death box1 vars , positions
-var box1 = {
-  x: 400,
-  y: 0,
-  h: 50,
-  w: 50,
-  r: 200,
-  g: 0,
-  b: 0,
-};
-//death box2 vars , positions
-var box2 = {
-  x: 400,
-  y: 0,
-  h: 50,
-  w: 50,
-  r: 200,
-  g: 0,
-  b: 0,
-};
-//death box3 vars , positions
-var box3 = {
-  x: 400,
-  y: 0,
-  h: 50,
-  w: 50,
-  r: 200,
-  g: 0,
-  b: 0,
-};
-var ship = {
-  x: 500,
-  y: 500,
-  w: 50,
-  h: 100,
-};
-//character vars , positions
-var character = {
-  x: 200,
-  y: 200,
-  w: 50,
-  h: 50,
-};
-//canvas fill colors
-var canvasCol = {
-  r: 255,
-  g: 255,
-  b: 255,
-};
-var textColor = {
-  r: 0,
-  b: 200,
-  g: 0,
-};
-var oxygen = {
-  x: 0,
-  y: 90,
-  h: 80,
-  w: 40,
-};
-var car = {
-  x: -200,
-  y: 100,
-  w: 100,
-  h: 50,
-};
-var carBox = {
-  x: 410,
-  y: 0,
-  w: 50,
-  h: 50,
-  r: 100,
-  g: 100,
-  b: 100,
-};
-var stage = {
-  1: 25,
-  2: 50,
-  3: 75,
-  4: 100,
-};
-var streetC = {
-  x: 800,
-  y: 800,
-};
-var grass = {
-  x: 800,
-  y: 800,
-  x1: 800,
-  y1: 800,
-};
-var lvlbox = {
-  x: 100,
-  y: 100,
-  w: 50,
-  h: 100,
-};
-var lvlbox2 = {
-  x: 100,
-  y: 100,
-  w: 50,
-  h: 100,
-};
-var lvlbox3 = {
-  x: 100,
-  y: 100,
-  w: 50,
-  h: 100,
-};
-var lvlCol = {
-  r: 100,
-  g: 100,
-  b: 100,
-};
-var lvlCol2 = {
-  r: 100,
-  g: 100,
-  b: 100,
-};
-var shipSpeed = 2;
-var space = false;
-var spaceLaunch = false;
-var gamePlay;
-//score
-var score = 0;
-//level display
-var level = 1;
-//lives
-var life = 3;
-//seeing if you died or not , true / false
-var death = false;
-//the speed of the box
-var boxSpeed = 2;
-//determine if you collect the coin
-var collect = 0;
-//movement speed of the character
-var moveSpeed = 10;
-//determening if you collect the big coin
-var hugeCollect = 0;
-//the randomizer for the huge coin
-var hugeCoin = 0;
-//stage 3, car part
-var stage3 = false;
-// car speed
-var carSpeed = 0;
-// car box speed
-var carBoxSpeed = 0;
-// fixing a bug
-var carActive = false;
-var collected = 0;
-var lifeScore = 0;
-var oxygenSpeed = 0.1;
-var oxygenTime = 60;
-var spaceLaunchTimer = 0;
-var carLaunchTimer = 0;
-var stage4 = false;
-var LVL = 0;
-var ballance = true;
-var button1,
-  button2,
-  button3,
-  button4,
-  button5,
-  button6,
-  button7,
-  button8,
-  button9,
-  button10,
-  button11;
-var shop = false;
-var game = false;
-var mainMenu = true;
-var shield = 0;
-var coins = 0;
-var broke = false;
-var highscore = 0;
-var leaderBoard = false;
-var userName;
-var myUserName;
-var settingsMove;
-var settingsCarMove = 10;
-var settingsMenu = false;
-var shieldPressing = false;
-var coinMultiplier = 1;
-var coinCost = 200;
-var database, ref1;
-var wipeInfo;
-var prize = " ";
-var commonCoinAdd;
-var score1, name1, oldscore, score2, name2, score3, name3, score4, name4;
+//require("dotenv").config();
 function setup() {
   var canvasPos = createCanvas(400, 400);
   x = (windowWidth - width) / 2;
   y = (windowHeight - height) / 2;
   canvasPos.position(x, y);
-  console.log(
-    "Welcome to my game , I am well aware on how easy it is to add fake posts to the data base and use the console to increase your score but just please dont. I have made this game purely for fun and so other people can learn from the code. Hope you enjoy the game - Liam"
-  );
+  // Welcome to my game , I am well aware on how easy it is to add fake posts to the data base and use the console to increase your score but just please dont. I have made this game for fun and so other people can learn from the code. Hope you enjoy the game - Liam
   userName = getItem("userName");
   coins = getItem("coins");
   shield = getItem("shield");
@@ -241,7 +34,7 @@ function setup() {
     highscore = 0;
   }
   if (userName == "" || userName == null) {
-    userName = "Input UserName";
+    userName = "logged out";
   }
   if (settingsMove == null) {
     settingsMove = 10;
@@ -301,7 +94,6 @@ function setup() {
     .position(x + 30, y + 320)
     .size(30, 30)
     .mousePressed(shieldActivate);
-  button8 = createInput(userName).position(x + 115, y + 300);
   button9 = createImg(
     "https://coingathergame.liamrubin2.repl.co/Assets/Settings.png",
     "settings"
@@ -331,19 +123,19 @@ function setup() {
     .size(x, windowHeight);
   behind2 = createImg(
     "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
-    "left"
+    "top"
   )
     .position(x, 0)
     .size(width, y);
   behind3 = createImg(
     "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
-    "left"
+    "bottom"
   )
     .position(x, y + height)
     .size(width, y);
   behind4 = createImg(
     "https://coingathergame.liamrubin2.repl.co/Assets/PurpleImg.png",
-    "left"
+    "right"
   )
     .position(x + width, 0)
     .size(x, windowHeight);
@@ -352,6 +144,7 @@ function setup() {
     .position(x + 55, y + 250)
     .mousePressed(gameStartFinal);
   button16 = createButton("Play (Beta)")
+    .mousePressed(game2Open)
     .size(90, 40)
     .position(x + 260, y + 250);
   button17 = createImg(
@@ -389,6 +182,22 @@ function setup() {
     .size(50, 50)
     .position(x + 170, y + 330)
     .mousePressed(repoOpen);
+  button22 = createButton("Log In")
+    .size(75, 30)
+    .position(x + 120, y + 300)
+    .mousePressed(loginMenu);
+  button23 = createButton("Sign Up")
+    .size(75, 30)
+    .position(x + 220, y + 300)
+    .mousePressed(signUpMenu);
+  button24 = createInput().size(150, 20).position(x+100, y+175);
+  button25 = createInput().size(150, 20).position(x+100, y+275);
+  button26 = createButton("Log In").size(100, 30).position(x+130, y+350).mousePressed(doLogin);
+  button27 = createButton("Sign Up").size(100, 30).position(x+130, y+350).mousePressed(doSignUp);
+  button28 = createButton("Log Out").size(80,20).position(x + 165, y + 370).mousePressed(doLogOut);
+  button28.hide();
+  button24.hide();
+  button25.hide();
   button11.hide();
   button15.hide();
   button16.hide();
@@ -398,7 +207,6 @@ function setup() {
   button4.hide();
   button6.hide();
   button7.hide();
-  button8.hide();
   button10.hide();
   button14.hide();
   button21.hide();
@@ -406,10 +214,14 @@ function setup() {
   button19.hide();
   button18.hide();
   button17.hide();
+  button22.hide();
+  button23.hide();
+  button26.hide();
+  button27.hide();
   var config = {
     apiKey: "",
-    authDomain: "coin-gather-game.firebaseapp.com",
-    databaseURL: "https://coin-gather-game-default-rtdb.firebaseio.com",
+    authDomain: "",
+    databaseURL: "",
     storageBucket: "",
     messagingSenderId: "",
   };
@@ -535,7 +347,9 @@ function preload() {
   leaderBoardImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/LeaderBoard1.png"
   );
-  pixel = loadFont("https://coingathergame.liamrubin2.repl.co/Assets/slkscre.ttf");
+  pixel = loadFont(
+    "https://coingathergame.liamrubin2.repl.co/Assets/slkscre.ttf"
+  );
   shieldImg = loadImage(
     "https://coingathergame.liamrubin2.repl.co/Assets/Shield-2.png"
   );
@@ -596,10 +410,9 @@ function preload() {
   );
 }
 function draw() {
-  oldscore1 = score1;
+  login();
   background(canvasCol.r, canvasCol.g, canvasCol.b);
   textAlign(CENTER, CENTER);
-  userName = button8.value();
   settingsMove = button10.value();
   settingsCarMove = button13.value();
   storeItem("settingsMove", settingsMove);
@@ -630,14 +443,21 @@ function draw() {
     textSize(20);
     text("Coin Gather!", 200, 60);
     text("High Score: " + highscore, 200, 130);
+    textSize(15);
+    text("Logged In As: " + userName, 200,350);
     canvasCol.r = 120;
     canvasCol.g = 120;
     canvasCol.b = 160;
-    button8.show();
     button9.show();
     textColor.r = 0;
     textColor.g = 0;
     textColor.b = 0;
+    if (userName == "logged out") {
+      button22.show();
+      button23.show();
+    } else {
+      button28.show();
+    }
   }
   if (shop == true) {
     textSize(15);
@@ -652,11 +472,13 @@ function draw() {
     canvasCol.b = 163;
     button1.hide();
     button2.hide();
+    button22.hide();
+    button23.hide();
     button3.show();
     button4.show();
     button5.hide();
-    button8.hide();
     button9.hide();
+    button28.hide();
     button11.show();
     button14.show();
     image(shieldImg, 40, 40, 75, 75);
@@ -715,10 +537,12 @@ function draw() {
     button3.hide();
     button4.show();
     button5.hide();
-    button8.hide();
     button9.hide();
     button11.hide();
+    button22.hide();
+    button23.hide();
     button12.show();
+    button28.hide();
   }
   if (settingsMenu == true) {
     fill("black");
@@ -727,15 +551,19 @@ function draw() {
     text("Car Move Speed", 170, 240);
     button1.hide();
     button3.hide();
+    button28.hide();
     button2.hide();
     button4.show();
     button5.hide();
     button6.hide();
     button7.hide();
-    button8.hide();
     button9.hide();
     button10.show();
     button13.show();
+    button24.hide();
+    button25.hide();
+    button22.hide();
+    button23.hide();
     canvasCol.r = 30;
     canvasCol.g = 120;
     canvasCol.b = 160;
@@ -749,11 +577,11 @@ function draw() {
     rect(0, 0, width, height);
     button1.hide();
     button2.hide();
+    button28.hide();
     button3.hide();
     button4.show();
     button5.hide();
     button7.hide();
-    button8.hide();
     button9.hide();
     button11.hide();
     button14.hide();
@@ -762,6 +590,8 @@ function draw() {
     button19.show();
     button18.show();
     button17.show();
+    button22.hide();
+    button23.hide();
     image(coinImg, 37, 60, 125, 125);
     fill("black");
     text("Original", 105, 200);
@@ -789,7 +619,70 @@ function draw() {
     noStroke();
   }
   if (gamePlay == true) {
+    button22.hide();
+    button23.hide();
     start();
+  }
+  if (lMenu == true) {
+    text("Log In", 200, 100);
+    text("Username", 175, 150);
+    text("Password", 175, 250);
+    textSize(10);
+    if (button24.value().length > 8) {
+      button26.attribute('disabled', '');
+      button26.style("background","grey");
+      button26.style("border-color","grey");
+    } else {
+      button26.removeAttribute('disabled');
+      button26.style("background","rgb(5,111,171)");
+      button26.style("border-color","rgb(5,111,171)");
+    }
+    button1.hide();
+    button3.hide();
+    button2.hide();
+    button4.show();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button9.hide();
+    button22.hide();
+    button23.hide();
+    button24.show();
+    button25.show();
+    button26.show();
+    canvasCol.r = 120;
+    canvasCol.g = 30;
+    canvasCol.b = 160;
+  }
+  if (suMenu == true) {
+    text("Sign Up", 200, 100);
+    text("Username", 175, 150);
+    text("Password", 175, 250);
+    if (button24.value().length > 8) {
+      button27.attribute('disabled', '');
+      button27.style("background","grey");
+      button27.style("border-color","grey");
+    } else {
+      button27.removeAttribute('disabled');
+      button27.style("background","rgb(5,111,171)");
+      button27.style("border-color","rgb(5,111,171)");
+    }
+    button1.hide();
+    button3.hide();
+    button2.hide();
+    button4.show();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button9.hide();
+    button22.hide();
+    button23.hide();
+    button24.show();
+    button25.show();
+    button27.show();
+    canvasCol.r = 120;
+    canvasCol.g = 30;
+    canvasCol.b = 160;
   }
   ammount();
 }
@@ -844,7 +737,10 @@ function submitScore() {
     name: name9,
     score: score9,
   };
-  if (highscore >= score1) {
+  if(userName == "logged out"){
+    alert("Sign Up / Log In To Submit Score")
+  }
+  else if(highscore >= score1) {
     if (score1 != highscore) {
       ref9.push(data8);
       ref8.push(data7);
@@ -961,6 +857,9 @@ function glitchOpen() {
 function replOpen() {
   window.open("https://CoinGatherGame.liamrubin2.repl.co");
 }
+function game2Open() {
+  window.open("https://editor.p5js.org/lr14/full/rggG9hH3I");
+}
 function commonBoxOpen() {
   commonBoxLoot = int(random(2, 1000));
   if (commonBoxLoot <= 500) {
@@ -997,7 +896,12 @@ function menuGoBack() {
   button1.show();
   button2.show();
   button5.show();
-  button8.show();
+  if (userName == "logged out") {
+      button22.show();
+      button23.show();
+    } else {
+      button28.show();
+    }
   ballance = true;
   shieldPressed = false;
   textColor.r = 0;
@@ -1009,7 +913,6 @@ function gameStart() {
   //gamePlay = true;
   mainMenu = false;
   shieldPressed = true;
-  button8.hide();
   button7.show();
   moveSpeed = settingsMove;
   button15.hide();
@@ -1020,7 +923,6 @@ function gameStartFinal() {
   gamePlay = true;
   mainMenu = false;
   shieldPressed = true;
-  button8.hide();
   button7.show();
   moveSpeed = settingsMove;
   button15.hide();
@@ -1044,6 +946,12 @@ function back1() {
   button19.hide();
   button18.hide();
   button17.hide();
+  button22.hide();
+  button23.hide();
+  button24.hide();
+  button25.hide();
+  button26.hide();
+  button27.hide();
   canvasCol.r = 30;
   canvasCol.g = 120;
   canvasCol.b = 160;
@@ -1052,565 +960,18 @@ function back1() {
   mainMenu = true;
   settingsMenu = false;
   game = false;
+  lMenu = false;
+  suMenu = false;
+  if (userName == "logged out") {
+      button22.show();
+      button23.show();
+    } else {
+      button28.show();
+  }
 }
 function leaderBoardPress() {
   leaderBoard = true;
   mainMenu = false;
-}
-function start() {
-  shieldPressing = true;
-  button21.hide();
-  button20.hide();
-  button19.hide();
-  button18.hide();
-  button17.hide();
-  button1.hide();
-  button2.hide();
-  button3.hide();
-  button4.hide();
-  button5.hide();
-  button9.hide();
-  canvasCol.r = 255;
-  canvasCol.g = 255;
-  canvasCol.b = 255;
-  mainMenu = false;
-  ballance = false;
-  image(street, streetC.x, streetC.y, 400, 400);
-  textAlign(CENTER);
-  image(coinImg, coin.x, coin.y, coin.w, coin.h);
-  image(characterImg, character.x, character.y, character.w, character.h);
-  image(bigCoinImg, huge.x, huge.y, huge.w, huge.h);
-  image(shipImg, ship.x, ship.y, ship.w, ship.h);
-  image(carImg, car.x, car.y, car.w, car.h);
-  fill(carBox.r, carBox.g, carBox.b);
-  fill(0, 200, 0);
-  rect(grass.x, grass.y, 400, 40);
-  rect(grass.x1, grass.y1, 400, 50);
-  stroke("white");
-  fill(carBox.r, carBox.g, carBox.b);
-  strokeWeight(4);
-  rect(carBox.x, carBox.y, carBox.w, carBox.h);
-  noStroke();
-  textSize(20);
-  fill(textColor.r, textColor.g, textColor.b);
-  text("Score: " + score, 195, 20);
-  image(heart[heartIndex], 0, 0, 120, 40);
-  spaceLaunchTimer++;
-  carLaunchTimer++;
-  moveCharacter();
-  inside();
-  defeat();
-  deathBox1();
-  if ((score >= 25 && score < 100) || score >= 125) {
-    deathBox2();
-    level = 2;
-    boxSpeed = 3;
-  }
-  if ((score >= 50 && score < 100) || score >= 150) {
-    deathBox3();
-    level = 3;
-    boxSpeed = 4;
-  }
-  if (space == true) {
-    level = 4;
-  }
-  if (score < 50) {
-    spaceLaunchTimer = 0;
-  }
-  if (score < 100) {
-    carLaunchTimer = 0;
-  }
-  if (spaceLaunchTimer == 2) {
-    ship.x = 200;
-    ship.y = 200;
-  }
-  if (carLaunchTimer == 2) {
-    car.x = 200;
-    car.y = 200;
-  }
-  if (score >= 100) {
-    level = 5;
-  }
-  if (score == 125) {
-    stage4Transition();
-  }
-}
-
-function keyPressed() {
-  if (keyCode == 16 && shield >= 1) {
-    shieldActivate();
-  }
-  if (keyCode === ENTER && life == 0 && gamePlay == true) {
-    boxSpeed = 2;
-    score = 0;
-    life = 3;
-    coin.x = 100;
-    coin.y = 100;
-    character.x = 200;
-    character.y = 200;
-    box1.r = 200;
-    box2.r = 200;
-    box3.r = 200;
-    box1.g = 0;
-    box2.g = 0;
-    box3.g = 0;
-    box1.b = 0;
-    box2.b = 0;
-    box3.b = 0;
-    canvasCol.r = 255;
-    canvasCol.g = 255;
-    canvasCol.b = 255;
-    level = 1;
-    box1.x = 400;
-    box2.x = 400;
-    box3.x = 400;
-    textColor.r = 0;
-    textColor.g = 0;
-    textColor.b = 0;
-    shipSpeed = 2;
-    space = false;
-    carBoxSpeed = 0;
-    carBox.x = 410;
-    carBox.y = 10;
-    car.x = -100;
-    car.y = -100;
-    grass.x = 600;
-    grass.x1 = 600;
-    streetC.x = 600;
-    carSpeed = 0;
-    stage3 = false;
-    carActive = false;
-    moveSpeed = settingsMove;
-    collected = 0;
-    oxygenTime = 60;
-    oxygenSpeed = 0.1;
-    lifeScore = 0;
-    ship.x = 600;
-    ship.y = 600;
-    heartIndex = 3;
-    button6.hide();
-    button7.show();
-    shieldPressesing = true;
-  }
-}
-
-function moveCharacter() {
-  if (
-    (keyIsDown(87) && character.y > 0) ||
-    (keyIsDown(UP_ARROW) && character.y > 0)
-  ) {
-    character.y -= moveSpeed;
-  }
-  if (
-    (keyIsDown(83) && character.y <= height - 60) ||
-    (keyIsDown(DOWN_ARROW) && character.y <= height - 60)
-  ) {
-    character.y += moveSpeed;
-  }
-  if (
-    (keyIsDown(65) && character.x >= 1) ||
-    (keyIsDown(LEFT_ARROW) && character.x >= 1)
-  ) {
-    character.x -= moveSpeed;
-  }
-  if (
-    (keyIsDown(68) && character.x <= width - 60) ||
-    (keyIsDown(RIGHT_ARROW) && character.x <= width - 60)
-  ) {
-    character.x += moveSpeed;
-  }
-  if ((keyIsDown(87) && car.y > 60) || (keyIsDown(UP_ARROW) && car.y > 60)) {
-    car.y -= carSpeed;
-  }
-  if (
-    (keyIsDown(83) && car.y <= 300) ||
-    (keyIsDown(DOWN_ARROW) && car.y <= 300)
-  ) {
-    car.y += carSpeed;
-  }
-  if ((keyIsDown(65) && car.x >= 1) || (keyIsDown(LEFT_ARROW) && car.x >= 1)) {
-    car.x -= carSpeed;
-  }
-  if (
-    (keyIsDown(68) && car.x <= 300) ||
-    (keyIsDown(RIGHT_ARROW) && car.x <= 300)
-  ) {
-    car.x += carSpeed;
-  }
-  if (keyIsDown(187) && userName == "Liam") {
-    //coins = 1000;
-    //shield = 10;
-    //coinCost = 600;
-    //coinMultiplier = 5;
-    score++;
-  }
-  //if(keyIsDown(187)&&userName == "Kool"){
-  //coins += 1
-  //}
-}
-
-function inside() {
-  if (
-    character.x < coin.x + coin.w &&
-    character.x + coin.w > coin.x &&
-    character.y < coin.y + coin.h &&
-    character.y + coin.h > coin.y
-  ) {
-    collect = 1;
-    coins += 1 * coinMultiplier;
-    coinSound.play();
-  }
-  if (
-    character.x < huge.x + huge.w &&
-    character.x + huge.w > huge.x &&
-    character.y < huge.y + huge.h &&
-    character.y + huge.h > huge.y
-  ) {
-    hugeCollect = 1;
-    coins += 10 * coinMultiplier;
-    coinSound.play();
-  }
-  if (
-    character.x < box1.x + box1.w &&
-    character.x + box1.w > box1.x &&
-    character.y < box1.y + box1.h &&
-    character.y + box1.h > box1.y
-  ) {
-    death = true;
-  }
-  if (
-    character.x < box2.x + box2.w &&
-    character.x + box2.w > box2.x &&
-    character.y < box2.y + box2.h &&
-    character.y + box2.h > box2.y
-  ) {
-    death = true;
-  }
-  if (
-    character.x < box3.x + box3.w &&
-    character.x + box3.w > box3.x &&
-    character.y < box3.y + box3.h &&
-    character.y + box3.h > box3.y
-  ) {
-    death = true;
-  }
-  if (
-    character.x < ship.x + ship.w &&
-    character.x + ship.w > ship.x &&
-    character.y < ship.y + ship.h &&
-    character.y + ship.h > ship.y
-  ) {
-    spaceLaunch = true;
-  }
-  if (
-    car.x < carBox.x + carBox.w &&
-    car.x + carBox.w > carBox.x &&
-    car.y < carBox.y + carBox.h &&
-    car.y + carBox.h > carBox.y
-  ) {
-    death = true;
-  }
-  if (
-    character.x < car.x + car.w &&
-    character.x + car.w > car.x &&
-    character.y < car.y + car.h &&
-    character.y + car.h > car.y
-  ) {
-    stage3 = true;
-  }
-  if (
-    character.x < oxygen.x + oxygen.w &&
-    character.x + oxygen.w > oxygen.x &&
-    character.y < oxygen.y + oxygen.h &&
-    character.y + oxygen.h > oxygen.y
-  ) {
-    oxygenTime++;
-    if (oxygenTime >= 60) {
-      oxygenTime = 60;
-    }
-  }
-
-  if (collect == 1) {
-    score += 1;
-    coin.x = random(0, width - 100);
-    coin.y = random(0, height - 50);
-    hugeCoin = int(random(0, 100));
-    collect = 0;
-  }
-  if (spaceLaunch == true) {
-    character.x = 600;
-    character.y = 600;
-    moveSpeed = 0;
-    ship.y -= shipSpeed;
-  }
-  if (ship.y <= -100) {
-    character.x = 200;
-    character.y = 200;
-    moveSpeed = 10;
-    box1.x = 700;
-    box2.x = 700;
-    box3.x = 700;
-    space = true;
-    spaceLaunch = false;
-  }
-  if (space == true) {
-    moveSpeed = settingsMove;
-    ship.y = 600;
-    shipSpeed = 2;
-    canvasCol.r = 0;
-    canvasCol.b = 100;
-    canvasCol.g = 0;
-    textColor.r = 255;
-    textColor.g = 255;
-    textColor.b = 255;
-    box1.r = 220;
-    box1.g = 220;
-    box1.b = 220;
-    box2.r = 220;
-    box2.g = 220;
-    box2.b = 220;
-    box3.r = 220;
-    box3.g = 220;
-    box3.b = 220;
-    oxygenStation();
-  }
-  if (stage3 == true) {
-    car.x += 3;
-    character.x = -100;
-    character.y = -100;
-    moveSpeed = 0;
-    space = false;
-  }
-  if (car.x >= 400) {
-    carStage();
-  }
-  carBox.x -= carBoxSpeed;
-
-  if (carBox.x <= 0) {
-    // start again from other side
-    carBox.x = width;
-    // make y coordinates random
-    carBox.y = random(60, 300);
-    //increase speed
-    carBoxSpeed += 0.5;
-    //add score each time you pass
-    score += 1;
-    //change box color
-    carBox.r = random(0, 250);
-    carBox.g = random(0, 250);
-    carBox.b = random(0, 250);
-    carBox.w = random(50, 150);
-  }
-  if (carBoxSpeed >= 15) {
-    // cap the speed
-    carBoxSpeed = 15;
-  }
-
-  if (hugeCoin == 2) {
-    huge.x = random(0, width - 100);
-    huge.y = random(0, height - 50);
-    hugeCoin = 0;
-  }
-  if (hugeCollect == 1) {
-    score += 20;
-    huge.x = 500;
-    huge.y = 500;
-    hugeCollect = 0;
-  }
-}
-
-function deathBox1() {
-  fill(box1.r, box1.g, box1.b);
-  rect(box1.x, box1.y, box1.w, box1.h);
-  box1.x = box1.x - boxSpeed;
-  if (box1.x <= 0 - box1.w) {
-    box1.x = 400;
-    box1.y = random(0, 300);
-  }
-}
-function deathBox2() {
-  fill(box2.r, box2.g, box2.b);
-  rect(box2.x, box2.y, box2.w, box2.h);
-  box2.x = box2.x - boxSpeed;
-  if (box2.x <= 0 - box2.w) {
-    box2.x = 400;
-    box2.y = random(0, 300);
-  }
-}
-function deathBox3() {
-  fill(box3.r, box3.g, box3.b);
-  rect(box3.x, box3.y, box3.w, box3.h);
-  box3.x = box3.x - boxSpeed;
-  if (box3.x <= -50) {
-    box3.x = 400;
-    box3.y = random(0, 300);
-  }
-}
-
-function defeat() {
-  if (death == true) {
-    life = life - 1;
-    heartIndex -= 1;
-    box1.x = 400;
-    box2.x = 400;
-    box3.x = 400;
-    carBox.x = 400;
-    death = false;
-    if (carActive == true) {
-      car.x = 200;
-      car.y = 200;
-    }
-    if (carActive == false) {
-      character.x = 200;
-      character.y = 200;
-    }
-    deathSound.play();
-  }
-  if (life == 0) {
-    shieldPressing = false;
-    button7.hide();
-    button6.show();
-    fill("teal");
-    rect(0, 0, width, height);
-    fill("Black");
-    text(
-      "GAME OVER\nPress ENTER To Restart\nScore: " +
-        score +
-        "\n\nLeaderboard " +
-        "\n1st: " +
-        name1 +
-        "," +
-        score1 +
-        "\n2nd: " +
-        name2 +
-        "," +
-        score2 +
-        "\n3rd: " +
-        name3 +
-        "," +
-        score3 +
-        "\n4th: " +
-        name4 +
-        "," +
-        score4 +
-        "\n5th: " +
-        name5 +
-        "," +
-        score5 +
-        "\n6th: " +
-        name6 +
-        "," +
-        score6 +
-        "\n7th: " +
-        name7 +
-        "," +
-        score7 +
-        "\n8th: " +
-        name8 +
-        "," +
-        score8 +
-        "\n9th: " +
-        name9 +
-        "," +
-        score9,
-      200,
-      200
-    );
-    boxSpeed = 0;
-    car.x = -100;
-    car.y = -100;
-    coin.x = 500;
-    coin.y = 500;
-    box1.x = 500;
-    box1.y = 500;
-    box2.x = 500;
-    box2.y = 500;
-    box3.x = 500;
-    box3.y = 500;
-    textColor.r = 0;
-    textColor.g = 0;
-    textColor.b = 0;
-    carBoxSpeed = 0;
-    oxygenSpeed = 0;
-  }
-}
-function carStage() {
-  carBoxSpeed = 3;
-  carActive = true;
-  car.x = 200;
-  car.y = 200;
-  carSpeed = settingsCarMove;
-  stage3 = false;
-  coin.x = -100;
-  coin.y = 100;
-  streetC.x = 0;
-  streetC.y = 0;
-  boxSpeed = 0;
-  box1.x = 600;
-  box1.y = 600;
-  box2.x = 600;
-  box2.y = 600;
-  box3.x = 600;
-  box3.y = 600;
-  grass.x = 0;
-  grass.y = 0;
-  grass.x1 = 0;
-  grass.y1 = 375;
-  level = 6;
-}
-function oxygenStation() {
-  fill("black");
-  rect(oxygen.x, oxygen.y, oxygen.w, oxygen.h);
-  fill("white");
-  rect(10, 100, 20, oxygenTime);
-  oxygenTime -= oxygenSpeed;
-  if (oxygenTime <= 0) {
-    life -= 1;
-    oxygenTime = 60;
-    oxygenSpeed += 0.01;
-  }
-}
-function stage4Transition() {
-  carBoxSpeed = 0;
-  carBox.x = 600;
-  car.x += carSpeed;
-  if (car.x >= 380) {
-    stage4 = true;
-    carSpeed = 0;
-  }
-  if (stage4 == true) {
-    character.w = 50;
-    character.h = 50;
-    character.x = 100;
-    character.y = 100;
-    carActive = false;
-    grass.x = 600;
-    carSpeed = 0;
-    grass.x1 = 600;
-    streetC.x = 600;
-    moveSpeed = settingsMove;
-    car.x = -200;
-    canvasCol.r = 255;
-    canvasCol.g = 255;
-    canvasCol.b = 255;
-    coin.x = 50;
-    coin.y = 50;
-    box1.x = 410;
-    box2.x = 410;
-    textColor.r = 0;
-    textColor.g = 0;
-    textColor.b = 200;
-    box1.r = 200;
-    box2.r = 200;
-    box3.r = 200;
-    box1.g = 0;
-    box2.g = 0;
-    box3.g = 0;
-    box1.b = 0;
-    box2.b = 0;
-    box3.b = 0;
-    stage4 = false;
-  }
 }
 function ammount() {
   image(coinImg, 310, 11, 30, 30);
