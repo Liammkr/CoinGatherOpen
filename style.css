@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -6,13 +7,35 @@ canvas {
   display: block;
 }
 button {
-  background-color: slategray;
+  background-color: rgb(5, 111, 171);
   color: black;
+  border-color: rgb(5, 111, 171);
   border-radius: 5px;
 }
 input {
-  background-color: slategray;
+  background-color: rgb(5, 111, 171);
   color: black;
-  border-color: black;
+  border-color: rgb(5, 111, 171);
   border-radius: 5px;
 }
+button:hover {
+  color: white;
+  border-color: white;
+}
+input:hover {
+  color: white;
+  border-color: white;
+}
+img:hover {
+  border-color: green;
+}
+.login{ 
+  position: absolute; 
+  left: 100px; 
+  top: 200px; 
+} 
+.game{ 
+  position: absolute; 
+  left: 100px; 
+  top: 50px; 
+} 
